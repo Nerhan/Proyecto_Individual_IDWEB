@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubSónica - Buscar</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="estructura">
+        <header>
+            <h1>SubSónica</h1>
+            <a href="/login">Iniciar Sesion</a>
+        </header>
+
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/bandas">Bandas/artistas</a>
+            <a href="/canciones">Canciones</a>
+            <a href="/registrar-banda">Registra una banda o artista</a>
+            <a href="/registrar-cancion">Registra una canción</a>
+            <a href="/buscar">Buscar</a>
+        </nav>
+
+        <main class="perfil-dinamico">
+            <section class="hero-banda">
+                <div class="hero-overlay"></div>
+                <img id="banda-imagen-grande" src="" alt="" class="hero-img">
+                
+                <div class="hero-content">
+                    <span id="banda-genero" class="tag-genero">Género</span>
+                    <h1 id="banda-nombre">Cargandoo...</h1>
+                    <div class="hero-meta">
+                        <span id="banda-origen">Ciudad, País</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="perfil-detalles">
+                <div class="col-bio">
+                    <h3>Crónica / Bio</h3>
+                    <p id="banda-bio">Cargando historia...</p>
+                </div>
+
+                <div class="col-tracks">
+                    <h3>Radar de Tracks</h3>
+                    <ul id="banda-discos" class="lista-tracks-perfil">
+                        </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>Matias Chamana-2025</footer>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

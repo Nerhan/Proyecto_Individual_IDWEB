@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubSónica - Registrar Banda/Artista</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="estructura">
+        <header>
+            <h1>SubSónica</h1>
+            <a href="/login">Iniciar Sesion</a>
+        </header>
+
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/bandas">Bandas/artistas</a>
+            <a href="/canciones">Canciones</a>
+            <a href="/registrar-banda" class="active">Registra una banda o artista</a>
+            <a href="/registrar-cancion">Registra una canción</a>
+            <a href="/buscar">Buscar</a>
+        </nav>
+
+        <main>
+            <section class="seccion-registro">
+                <h2>Registra tu Proyecto</h2>
+                <p class="intro-seccion">Forma parte del archivo SubSónica. Completa los datos de tu banda o proyecto solista.</p>
+
+                <form class="formulario-underground" id="form-registro-banda">
+                    <div class="grupo-input">
+                        <label for="nombre">Nombre de la Banda / Artista</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Lázaro Suplika..." required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="genero">Género Principal</label>
+                        <input type="text" id="genero" name="genero" placeholder="Ej: Darkwave Experimental, Punk Lo-fi..." required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="origen">Ciudad / País de Origen</label>
+                        <input type="text" id="origen" name="origen" placeholder="Ej: Buenos Aires, AR">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="imagen">Enlace a Foto de la Banda (URL)</label>
+                        <input type="url" id="imagen" name="imagen" placeholder="https://imagen.com/foto.jpg">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="bio">Biografía / Historia corta</label>
+                        <textarea id="bio" name="bio" rows="5" placeholder="Cuéntanos sobre tu sonido y trayectoria..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Publicar</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>Matias Chamana-2025</footer>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubSónica - Buscar</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="estructura">
+        <header>
+            <h1>SubSónica</h1>
+            <a href="/login">Iniciar Sesion</a>
+        </header>
+
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/bandas">Bandas/artistas</a>
+            <a href="/canciones">Canciones</a>
+            <a href="/registrar-banda">Registra una banda o artista</a>
+            <a href="/registrar-cancion">Registra una canción</a>
+            <a href="/buscar">Buscar</a>
+        </nav>
+
+        <main>
+            <section class="seccion-login">
+                <div class="login-card">
+                    <h2>Crear Cuenta</h2>
+                    <p class="subtitulo-form">Únete a la comunidad SubSónica.</p>
+                    
+                    <form>
+                        <div class="grupo-input">
+                            <label for="full-name">Nombre Completo</label>
+                            <input type="text" id="full-name" placeholder="Ej: Juan Pérez" required>
+                        </div>
+
+                        <div class="grupo-input">
+                            <label for="email-reg">Email</label>
+                            <input type="email" id="email-reg" placeholder="tu@email.com" required>
+                        </div>
+                        
+                        <div class="grupo-input">
+                            <label for="pass-reg">Contraseña</label>
+                            <input type="password" id="pass-reg" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Crear Perfil</button>
+                    </form>
+                    
+                    <p class="footer-form">¿Ya eres parte? <a href="/login">Inicia sesión</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>Matias Chamana-2025</footer>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

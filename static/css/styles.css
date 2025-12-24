@@ -1,0 +1,723 @@
+/* IMPORTACIÓN DE FUENTES: Syne (Títulos pesados), Special Elite (Máquina de escribir), Inter (Lectura) */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Syne:wght@800&family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Evita que el padding afecte el ancho total calculado */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    overflow-x: hidden; /* Evita desplazamientos horizontales accidentales */
+}
+
+/* ESTRUCTURA DASHBOARD: Layout principal con barra lateral fija */
+.estructura {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* CABECERA: Contenedor del Logo y Login */
+header {
+    grid-column: 1 / 3;
+    background-color: #000;
+    border-bottom: 2px solid #333;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    padding: 25px;
+    color: #d4ff00;
+    text-align: center;
+}
+
+header a {
+    font-family: 'Special Elite', cursive;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    padding: 10px 25px;
+    background-color: #ff0000; /* Rojo puro y fuerte */
+    margin-right: 30px;
+    text-transform: uppercase;
+    /* EFECTO DISRUPTIVO: Un ligero giro y sombra negra sólida */
+    transform: rotate(2deg); 
+    box-shadow: 5px 5px 0px #000; 
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+
+header a:hover {
+    transform: rotate(0deg) scale(1.1); /* Se endereza y crece al pasar el mouse */
+    background-color: #fff;
+    color: #ff0000;
+    box-shadow: none;
+}
+
+/* BARRA DE NAVEGACIÓN: Menú lateral izquierdo */
+nav {
+    background-color: #1a1a1a;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Distribuye los links uniformemente */
+}
+
+nav a {
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s; /* Transición suave para color y movimiento */
+}
+
+nav a:hover {
+    color: #d4ff00;
+    padding-left: 35px; /* Efecto de empuje lateral al pasar el mouse */
+    background-color: #222;
+}
+
+/* Estado activo: Colores invertidos */
+nav a.active {
+    background-color: #d4ff00;
+    color: #000;
+    font-weight: 800;
+}
+
+/* ÁREA DE CONTENIDO: Espacio principal donde se muestra la información */
+main {
+    background-color: #121212;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    padding: 60px;
+}
+
+main h2 {
+    font-family: 'Syne', sans-serif;
+    margin-bottom: 30px;
+    font-size: 3.5rem;
+    line-height: 1;
+    display: inline-block; /* Hace que el borde solo ocupe el ancho del texto */
+    border-bottom: 8px solid #d4ff00; /* Más grueso y color neón */
+}
+
+main h3 {
+    margin: 25px 0 15px 0;
+    font-family: 'Syne', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+main p, main li {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 850px;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+main strong {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 0 5px;
+    font-family: 'Special Elite', cursive;
+}
+
+main ul {
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+main a {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+
+
+/* PIE DE PÁGINA: Información de copyright/autor */
+footer {
+    grid-column: 1 / 3;
+    background-color: #000;
+    color: #444;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.8rem;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+/*--------------------------------*/
+/* --- ESTILOS SECCIÓN BANDAS --- */
+/*--------------------------------*/
+
+.intro-seccion {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* El contenedor que organiza las tarjetas */
+.contenedor-grid {
+    display: grid;
+    /* Crea tantas columnas de 280px como quepan en el espacio */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* La tarjeta individual (estilo flyer) */
+.tarjeta-banda {
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    transition: transform 0.3s, border-color 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.tarjeta-banda:hover {
+    transform: translateY(-10px) rotate(-1deg); /* Se levanta y gira un poco */
+    border-color: #d4ff00; /* Borde neón al pasar el mouse */
+}
+
+/* Contenedor de la foto */
+.imagen-banda img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Para que la foto no se deforme */
+    filter: grayscale(100%) contrast(120%); /* Efecto foto vieja/punk */
+    transition: 0.3s;
+}
+
+.tarjeta-banda:hover .imagen-banda img {
+    filter: grayscale(0%) contrast(100%); /* Recupera el color al hacer hover */
+}
+
+/* Texto dentro de la tarjeta */
+.info-banda {
+    padding: 20px;
+}
+
+.info-banda h3 {
+    font-family: 'Syne', sans-serif;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    word-wrap: break-word;      /* Rompe la palabra si es muy larga */
+    overflow-wrap: break-word;  /* Estándar moderno para romper palabras */
+    font-size: 1.4rem;          /* Bajamos un poco el tamaño para que quepa mejor */
+    line-height: 1.1;           /* Pegamos las líneas si el nombre se divide en dos */
+    max-width: 100%;            /* Asegura que no intente ser más ancho que la tarjeta */
+}
+
+.info-banda p {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Botón interno de la tarjeta */
+.boton-ver {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    color: #000;
+    background-color: #d4ff00;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: 0.2s;
+}
+
+.boton-ver:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+/*-----------------------------------*/
+/* --- ESTILOS SECCIÓN CANCIONES --- */
+/*-----------------------------------*/
+
+.lista-canciones {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+/* Encabezado de la tabla */
+.track-header {
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 100px;
+    padding: 10px 20px;
+    border-bottom: 2px solid #333;
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* Cada fila de canción */
+.track-item {
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 100px;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.track-item:hover {
+    background-color: #1a1a1a;
+    border-left: 5px solid #d4ff00;
+}
+
+.track-num {
+    font-family: 'Special Elite', cursive;
+    color: #555;
+}
+
+.track-name {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.track-artist {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.8rem;
+    color: #ff3e3e;
+}
+
+.track-album, .track-time {
+    font-family: 'Special Elite', cursive;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.track-item:hover .track-name {
+    color: #d4ff00;
+}
+
+.btn-escuchar {
+    text-decoration: none;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: #ff3e3e;
+    padding: 5px 12px;
+    text-align: center;
+    border: 1px solid #fff;
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.btn-escuchar:hover {
+    background-color: #d4ff00;
+    color: #000;
+    transform: scale(1.1) rotate(-3deg);
+}
+
+/* Ajuste del grid para que quepa el botón */
+.track-header, .track-item {
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 120px; /* Ajustamos la última columna */
+    gap: 15px;
+}
+
+/*-------------------------------------*/
+/* --- ESTILOS FORMULARIO REGISTRO --- */
+/*-------------------------------------*/
+/*desde aqui*/
+.seccion-registro, .seccion-login {
+    display: flex;
+    flex-direction: column;    /* Los elementos se apilan verticalmente */
+    align-items: center;       /* Centra el formulario horizontalmente */
+    justify-content: center;    /* Centra el formulario verticalmente */
+    padding: 60px 20px;        /* Espacio arriba/abajo para que no toque los bordes */
+    min-height: 80vh;          /* Asegura que el contenido flote en medio del área principal */
+    text-align: center;        /* Centra los textos H2 y P que están fuera del form */
+}
+
+/* --- AJUSTE DEL FORMULARIO --- */
+
+.formulario-underground {
+    text-align: left;          /* Mantiene los labels e inputs alineados a la izquierda */
+    width: 100%;               /* Permite que use el max-width definido */
+    max-width: 600px;
+    background-color: #1a1a1a;
+    padding: 40px;
+    border: 2px solid #333;
+    box-shadow: 10px 10px 0px #000;
+}
+
+.formulario-underground {
+    max-width: 600px;
+    background-color: #1a1a1a;
+    padding: 40px;
+    border: 2px solid #333;
+    /* Efecto de sombra sólida para dar peso visual */
+    box-shadow: 10px 10px 0px #000;
+}
+
+.grupo-input {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #d4ff00; /* Amarillo neón */
+    margin-bottom: 8px;
+}
+
+/* Aplicamos el estilo a todos los campos de texto por igual */
+.grupo-input input, 
+.grupo-input textarea {
+    background-color: #000;
+    border: 1px solid #444;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Special Elite', cursive;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+    border-color: #ff3e3e; /* El rojo disruptivo al escribir */
+    box-shadow: 0 0 10px rgba(255, 62, 62, 0.2);
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background-color: #d4ff00;
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #fff;
+    transform: scale(1.02);
+    box-shadow: 0px 5px 0px #ff3e3e;
+}
+
+/*--------------------------------*/
+/* --- ESTILOS SECCIÓN BUSCAR --- */
+/*--------------------------------*/
+
+.contenedor-busqueda {
+    margin: 40px 0;
+}
+
+.barra-busqueda {
+    display: flex;
+    gap: 0; /* Sin espacio para que parezcan una sola pieza */
+    border: 2px solid #333;
+    max-width: 800px;
+}
+
+.barra-busqueda input {
+    flex: 1; /* Ocupa todo el espacio posible */
+    background-color: #000;
+    border: none;
+    padding: 20px;
+    color: #d4ff00; /* Texto neón mientras escribes */
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.barra-busqueda button {
+    background-color: #ff3e3e;
+    color: #fff;
+    border: none;
+    padding: 0 40px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.barra-busqueda button:hover {
+    background-color: #d4ff00;
+    color: #000;
+}
+
+/* Contenedor de resultados */
+.resultados-grid {
+    margin-top: 50px;
+    min-height: 200px;
+    border-top: 1px dashed #444;
+    padding-top: 30px;
+}
+
+.resultado-item {
+    background: #1a1a1a;
+    border-left: 4px solid #ff3e3e;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-family: 'Special Elite', cursive;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultado-item a {
+    color: #d4ff00;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.msj-espera {
+    font-family: 'Special Elite', cursive;
+    color: #555;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/*----------------------------------*/
+/* --- ESTILOS LOGIN / REGISTRO --- */
+/*----------------------------------*/
+
+.seccion-login {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+    height: 100%;           /* Toma el alto del main */
+    padding: 20px;
+}
+
+.login-card {
+    background-color: #1a1a1a;
+    padding: 50px;
+    border: 2px solid #333;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 15px 15px 0px #000; /* Sombra más pesada */
+    text-align: center;
+}
+
+.login-card h2 {
+    font-family: 'Syne', sans-serif;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    border: none; /* Quitamos el borde que tienen otros h2 */
+}
+
+.subtitulo-form {
+    font-family: 'Special Elite', cursive;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.footer-form {
+    margin-top: 25px;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-form a {
+    color: #ff3e3e;
+    text-decoration: underline;
+}
+
+.footer-form a:hover {
+    color: #d4ff00;
+}
+
+/*-----------------------------*/
+/* --- PERFIL DE BANDA PRO --- */
+/*-----------------------------*/
+
+.perfil-dinamico {
+    padding: 0; /* Quitamos padding para que el hero llegue a los bordes */
+}
+
+/* Sección Hero */
+.hero-banda {
+    position: relative;
+    height: 70vh; /* Ocupa el 70% de la pantalla */
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(110%) brightness(0.6);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #000 10%, transparent 90%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+}
+
+.tag-genero {
+    background-color: #ff3e3e;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño gigante adaptable */
+    line-height: 0.9;
+    margin: 0;
+    text-shadow: 4px 4px 0px #d4ff00;
+}
+
+/* Detalles del Perfil */
+.perfil-detalles {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    padding: 60px 50px;
+    background-color: #000;
+}
+
+.col-bio h3, .col-tracks h3 {
+    font-family: 'Syne', sans-serif;
+    color: #d4ff00;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.col-bio p {
+    font-family: 'Special Elite', cursive;
+    line-height: 1.8;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* Lista de Tracks en el Perfil */
+.lista-tracks-perfil {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-tracks-perfil li {
+    background: #111;
+    border: 1px solid #222;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-family: 'Syne', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.lista-tracks-perfil li:hover {
+    border-color: #ff3e3e;
+    transform: translateX(10px);
+}
+
+/* --- ESTILOS DE TRACKS DENTRO DEL PERFIL --- */
+
+.lista-tracks-perfil {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.lista-tracks-perfil li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0a0a0a; /* Fondo más oscuro que el resto */
+    border: 1px solid #333;
+    padding: 15px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.lista-tracks-perfil li:hover {
+    border-color: #ff3e3e; /* Brillo rojo al pasar el mouse */
+    transform: translateX(5px);
+}
+
+.track-perfil-info strong {
+    display: block;
+    color: #d4ff00; /* Título en amarillo neón */
+    font-size: 1.1rem;
+    font-family: 'Syne', sans-serif;
+}
+
+.track-perfil-info span {
+    color: #888;
+    font-size: 0.8rem;
+    font-family: 'Special Elite', cursive;
+}
+
+.btn-escuchar-perfil {
+    background: #ff3e3e;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 0.7rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Syne', sans-serif;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-escuchar-perfil:hover {
+    background: #fff;
+    color: #000;
+}
